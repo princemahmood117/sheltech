@@ -103,8 +103,7 @@ export default function Royal() {
               {/* Previous Button */}
               <button
                 onClick={handlePrev}
-                className="relative inline-flex items-center w-10 h-10 justify-center overflow-hidden font-medium transition duration-300 ease-out border border-gray-800 rounded-full shadow-md group bg-white cursor-pointer"
-              >
+                className="relative inline-flex items-center w-10 h-10 justify-center overflow-hidden font-medium transition duration-300 ease-out border border-gray-800 rounded-full shadow-md group bg-white cursor-pointer">
                 {/* Animated Background - slides from left */}
                 <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-[rgb(33,33,88)] group-hover:translate-x-0 ease">
                   <MoveLeft className="w-6 h-6" />
@@ -123,8 +122,7 @@ export default function Royal() {
               {/* Next Button */}
               <button
                 onClick={handleNext}
-                className="relative inline-flex items-center w-10 h-10 justify-center overflow-hidden font-medium transition duration-300 ease-out border border-gray-800 rounded-full shadow-md group bg-white  cursor-pointer"
-              >
+                className="relative inline-flex items-center w-10 h-10 justify-center overflow-hidden font-medium transition duration-300 ease-out border border-gray-800 rounded-full shadow-md group bg-white  cursor-pointer">
                 {/* Animated Background - slides from left */}
                 <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-[rgb(33,33,88)] group-hover:translate-x-0 ease">
                   <MoveRight className="w-6 h-6" />
