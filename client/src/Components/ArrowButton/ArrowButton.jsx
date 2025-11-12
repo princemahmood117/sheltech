@@ -1,0 +1,28 @@
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+
+const ArrowButton = ({ direction = "right", onClick, className = "" }) => {
+  const Icon = direction === "left" ? FaArrowLeft : FaArrowRight;
+
+  return (
+    <button
+      onClick={onClick}
+      className={`relative inline-flex items-center w-10 h-10 justify-center overflow-hidden font-medium 
+      transition duration-300 ease-out border border-gray-800 rounded-full shadow-md group bg-white cursor-pointer ${className}`}>
+      {/* animated bg */}
+      <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-[rgb(33,33,88)] group-hover:translate-x-0 ease">
+        <Icon className="w-4 h-6" />
+      </span>
+
+      {/* default icon */}
+      <span className="absolute flex items-center justify-center w-full h-full text-gray-800 transition-all duration-300 transform group-hover:translate-x-full ease">
+        <Icon className="w-4 h-4" />
+      </span>
+
+      <span className="relative invisible">
+        <Icon className="w-4 h-4" />
+      </span>
+    </button>
+  );
+};
+
+export default ArrowButton;

@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-coverflow";
 import Title from "../Titile/Title";
+import ArrowButton from "../ArrowButton/ArrowButton";
 
 export default function Royal() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -101,42 +102,9 @@ export default function Royal() {
           {/* Navigation Buttons */}
           <div className="flex gap-8">
               {/* Previous Button */}
-              <button
-                onClick={handlePrev}
-                className="relative inline-flex items-center w-10 h-10 justify-center overflow-hidden font-medium transition duration-300 ease-out border border-gray-800 rounded-full shadow-md group bg-white cursor-pointer">
-                {/* Animated Background - slides from left */}
-                <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-[rgb(33,33,88)] group-hover:translate-x-0 ease">
-                  <MoveLeft className="w-6 h-6" />
-                </span>
-
-                {/* Default Icon - slides to right on hover */}
-                <span className="absolute flex items-center justify-center w-full h-full text-gray-800 transition-all duration-300 transform group-hover:translate-x-full ease">
-                  <MoveLeft className="w-6 h-6" />
-                </span>
-
-                <span className="relative invisible">
-                  <MoveLeft className="w-6 h-6" />
-                </span>
-              </button>
-
+              <ArrowButton direction="left" onClick={handlePrev}></ArrowButton>
               {/* Next Button */}
-              <button
-                onClick={handleNext}
-                className="relative inline-flex items-center w-10 h-10 justify-center overflow-hidden font-medium transition duration-300 ease-out border border-gray-800 rounded-full shadow-md group bg-white  cursor-pointer">
-                {/* Animated Background - slides from left */}
-                <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-[rgb(33,33,88)] group-hover:translate-x-0 ease">
-                  <MoveRight className="w-6 h-6" />
-                </span>
-
-                {/* Default Icon - slides to right on hover */}
-                <span className="absolute flex items-center justify-center w-full h-full text-gray-800 transition-all duration-300 transform group-hover:translate-x-full ease">
-                  <MoveRight className="w-6 h-6" />
-                </span>
-
-                <span className="relative invisible">
-                  <MoveRight className="w-6 h-6" />
-                </span>
-              </button>
+              <ArrowButton direction="right" onClick={handleNext}></ArrowButton>
           </div>
         </div>
       </div>
@@ -184,9 +152,6 @@ export default function Royal() {
             </SwiperSlide>
           ))}
         </Swiper>
-
-        {/* Bottom Navy Bar */}
-        {/* <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-[#0a0a2a] to-transparent pointer-events-none z-10" /> */}
       </div>
     </div>
   );

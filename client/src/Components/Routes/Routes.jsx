@@ -1,17 +1,23 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../../MainLayout/MainLayout";
 import Home from "../../Pages/Home/Home";
-// import About from "../../Pages/About/About";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Login from "../../Pages/Login/Login";
 import SignUp from "../../Pages/SignUp/SignUp";
 import InsightSection from "../LegacySection/InsightSection/InsightSection";
 import InsightDetails from "../LegacySection/InsightSection/InsightDetails";
+import AboutUs from "../../Pages/AboutUs/AboutUs";
+import ContactUs from "../../Pages/Contact/ContactUs";
+import Media from "../../Pages/Media/Media";
+import LandOwner from "../../Pages/LandOwner/LandOwner";
+import Career from "../../Pages/Career/Career";
+import Enquiry from "../../Pages/Enquiry/Enquiry";
+import Policy from "../../Pages/Policy/Policy";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout />, // Layout wrapper
+    element: <MainLayout />,
     errorElement: <ErrorPage />,
     children: [
       {
@@ -36,6 +42,39 @@ const router = createBrowserRouter([
         path : "/insights/:slug",
         element: <InsightDetails></InsightDetails>
       },
+            {
+        path : "/about",
+        element: <AboutUs></AboutUs>
+      },
+      {
+        path : "/contact",
+        element: <ContactUs></ContactUs>
+      },
+      
+      {
+        path : "/media",
+        element: <Media></Media>
+      },
+
+      {
+        path : "/land-owner",
+        element: <LandOwner></LandOwner>
+      },
+      {
+        path : "/career",
+        element: <Career></Career>
+      },
+
+      {
+        path : "/enquiry",
+        element: <Enquiry></Enquiry>
+      },
+
+      {
+        path : "/policy",
+        element: <Policy></Policy>
+      },
+
 
     ],
   },

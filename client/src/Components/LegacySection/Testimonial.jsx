@@ -208,6 +208,7 @@ import "swiper/css/navigation";
 import { testimonials } from "./legacyData";
 import Title from "../Titile/Title";
 import { FaArrowLeft, FaArrowRight, FaPlay } from "react-icons/fa";
+import ArrowButton from "../ArrowButton/ArrowButton";
 
 const Testimonial = () => {
   const [swiperInstance, setSwiperInstance] = useState(null);
@@ -246,37 +247,8 @@ const Testimonial = () => {
           {/* Navigation Buttons */}
           <div className="flex items-center justify-center gap-4 pb-8 ml-8">
             <div className="flex items-center justify-center gap-4">
-              <button
-                onClick={handlePrev}
-                className="relative inline-flex items-center w-10 h-10 justify-center overflow-hidden font-medium transition duration-300  border border-gray-800 rounded-full shadow-md group bg-white cursor-pointer">
-                <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-[rgb(33,33,88)] group-hover:translate-x-0">
-                  <FaArrowLeft className="w-4 h-6" />
-                </span>
-
-                <span className="absolute flex items-center justify-center w-full h-full text-gray-800 transition-all duration-300 transform group-hover:translate-x-full ease">
-                  <FaArrowLeft className="w-4 h-6" />
-                </span>
-
-                <span className="relative invisible">
-                  <FaArrowLeft className="w-4 h-6" />
-                </span>
-              </button>
-
-              <button
-                onClick={handleNext}
-                className="relative inline-flex items-center w-10 h-10 justify-center overflow-hidden font-medium transition duration-300 ease-out border border-gray-800 rounded-full shadow-md group bg-white cursor-pointer">
-                <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-[rgb(33,33,88)] group-hover:translate-x-0 ease">
-                  <FaArrowRight className="w-4 h-6" />
-                </span>
-
-                <span className="absolute flex items-center justify-center w-full h-full text-gray-800 transition-all duration-300 transform group-hover:translate-x-full ease">
-                  <FaArrowRight className="w-4 h-6" />
-                </span>
-
-                <span className="relative invisible">
-                  <FaArrowRight className="w-4 h-6" />
-                </span>
-              </button>
+              <ArrowButton direction="left" onClick={handlePrev} ></ArrowButton>
+              <ArrowButton direction="right" onClick={handleNext} ></ArrowButton>
             </div>
           </div>
         </div>

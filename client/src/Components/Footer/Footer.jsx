@@ -1,13 +1,21 @@
-import React from "react";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaYoutube,
-} from "react-icons/fa";
+
+import {FaFacebookF,FaInstagram,FaLinkedinIn,FaYoutube} from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+
 const Footer = () => {
+
+  const links = [
+    { name: "Home", path: "/" },
+    { name: "About Us", path: "/about" },
+    { name: "Landowner", path: "/landowner" },
+    { name: "Media Center", path: "/media-center" },
+    { name: "Career", path: "/career" },
+    { name: "Customer Enquiry", path: "/customer-enquiry" },
+    { name: "Privacy Policy", path: "/privacy-policy" },
+    { name: "Contact", path: "/contact" },
+  ]
+
   return (
     <footer
       className="relative w-full text-white mt-6"
@@ -50,12 +58,12 @@ const Footer = () => {
 
         {/* Line 4: Navigation links */}
         <div className="grid grid-cols-2 md:flex md:flex-row md:justify-center gap-6 mt-4">
-          {["Home","About Us","Landowner","Media Center","Career","Customer Enquiry","Privacy Policy","Contact",].map((link, idx) => (
+          {links.map((link, idx) => (
             <Link
+              to={link.path}
               key={idx}
-              className="hover:text-blue-400 transition-colors md:text-center text-left"
-            >
-              {link}
+              className="hover:text-blue-400 transition-colors md:text-center text-left">
+              {link?.name}
             </Link>
           ))}
         </div>
@@ -65,3 +73,32 @@ const Footer = () => {
 };
 
 export default Footer;
+
+
+
+
+
+
+
+
+// {/* Line 4: Navigation links */}
+// <div className="grid grid-cols-2 md:flex md:flex-row md:justify-center gap-6 mt-4">
+//   {[
+//     { name: "Home", path: "/" },
+//     { name: "About Us", path: "/about" },
+//     { name: "Landowner", path: "/landowner" },
+//     { name: "Media Center", path: "/media-center" },
+//     { name: "Career", path: "/career" },
+//     { name: "Customer Enquiry", path: "/customer-enquiry" },
+//     { name: "Privacy Policy", path: "/privacy-policy" },
+//     { name: "Contact", path: "/contact" },
+//   ].map((link, idx) => (
+//     <Link
+//       key={idx}
+//       to={link.path} // ✅ navigation path
+//       className="hover:text-blue-400 transition-colors md:text-center text-left"
+//     >
+//       {link.name}
+//     </Link>
+//   ))}
+// </div>
