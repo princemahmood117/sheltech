@@ -3,6 +3,10 @@ import { useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import slides from "./legacyData";
 import Title from "../Titile/Title";
+import Testimonial from "./Testimonial";
+import InsightSection from "./InsightSection/InsightSection";
+
+
 
 const LegacySlides = () => {
   const [index, setIndex] = useState(0);
@@ -108,10 +112,9 @@ const LegacySlides = () => {
 
       </div>
 
+      <Testimonial></Testimonial>
 
-
-
-      <h1>Glimps of Inspiration section here</h1>
+      <InsightSection></InsightSection>
     </div>
   );
 };

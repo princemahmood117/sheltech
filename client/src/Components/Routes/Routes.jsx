@@ -5,6 +5,8 @@ import Home from "../../Pages/Home/Home";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Login from "../../Pages/Login/Login";
 import SignUp from "../../Pages/SignUp/SignUp";
+import InsightSection from "../LegacySection/InsightSection/InsightSection";
+import InsightDetails from "../LegacySection/InsightSection/InsightDetails";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +26,17 @@ const router = createBrowserRouter([
         path : '/sign-up',
         element: <SignUp></SignUp>
       },
+
+      {
+        path : '/insights',
+        element: <InsightSection></InsightSection>
+      },
+
+      {
+        path : "/insights/:slug",
+        element: <InsightDetails></InsightDetails>
+      },
+
     ],
   },
 ]);
