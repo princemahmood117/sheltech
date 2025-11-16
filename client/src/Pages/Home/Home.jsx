@@ -6,9 +6,15 @@ import LandmarkProjects from '../../Components/HeroSlider/LandmarkProject/Landma
 import EmptyDiv from '../../Components/Footer/EmptyDiv';
 import MapSection from '../../Components/MapSection/MapSection';
 import LegacySlides from '../../Components/LegacySection/LegacySlides';
+import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
     return (
+     <>
+     <Helmet>
+      <title>Sheltech Best Real Estate Developer in Bangladesh</title>
+     </Helmet>
+     
          <div className="relative">
             <Navbar></Navbar>
             <HeroSlider></HeroSlider>
@@ -20,6 +26,7 @@ const Home = () => {
             <MapSection></MapSection>
             <LegacySlides></LegacySlides>
           </div>
+     </>
     );
 };
 

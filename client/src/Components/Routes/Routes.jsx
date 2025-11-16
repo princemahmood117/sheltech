@@ -13,6 +13,7 @@ import LandOwner from "../../Pages/LandOwner/LandOwner";
 import Career from "../../Pages/Career/Career";
 import Enquiry from "../../Pages/Enquiry/Enquiry";
 import Policy from "../../Pages/Policy/Policy";
+import Projects from "../../Pages/Projects/Projects";
 
 const router = createBrowserRouter([
   {
@@ -74,6 +75,12 @@ const router = createBrowserRouter([
         path : "/policy",
         element: <Policy></Policy>
       },
+
+      {
+        path : "/projects",
+        element: <Projects></Projects>
+      },
+
 
 
     ],

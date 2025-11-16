@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import LoadingScreen from "../../Components/LoadingScreen/LoadingScreen";
+import { Helmet } from "react-helmet-async";
+import { MoveRight } from "lucide-react";
 
 const SignUp = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -10,6 +12,9 @@ const SignUp = () => {
   };
   return (
     <>
+       <Helmet>
+            <title>Sheltech - Sign Up</title>
+          </Helmet>
       {isLoading && (
         <LoadingScreen
           handleLoadingComplete={handleLoadingComplete}
@@ -61,9 +66,29 @@ const SignUp = () => {
           />
 
           {/* Sign In Button */}
-          <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-md w-full text-center">
-            Sign In
-          </button>
+        <div className="flex gap-4 mt-6 my-9 items-center group">
+              {/* H1 reacts on hover of parent */}
+              <h1 className="flex transition-colors duration-300 cursor-pointer">
+                Sign Up
+              </h1>
+
+              {/* Button reacts on hover of parent */}
+              <button className="relative inline-flex items-center w-8 h-8 justify-center overflow-hidden font-medium transition duration-300 ease-out border border-white rounded-full shadow-md bg-[rgb(33,33,88)] text-white cursor-pointer">
+                {/* Animated Background - slides from left */}
+                <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-[rgb(33,33,88)] group-hover:translate-x-0 ease">
+                  <MoveRight className="w-4 h-6" />
+                </span>
+
+                {/* Default Icon - slides to right on hover */}
+                <span className="absolute flex items-center justify-center w-full h-full bg-gray-200 text-[rgb(33,33,88)] transition-all duration-300 transform group-hover:translate-x-full ease">
+                  <MoveRight className="w-4 h-6" />
+                </span>
+
+                <span className="relative invisible">
+                  <MoveRight className="w-6 h-6" />
+                </span>
+              </button>
+            </div>
 
           {/* Bottom Text */}
           <p
