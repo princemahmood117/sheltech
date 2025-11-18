@@ -85,10 +85,9 @@ export default function Royal() {
   return (
     <div className="w-full min-h-screen bg-gray-50 flex flex-col lg:flex-row ">
       {/* Left Side - Content */}
-      <div className="lg:w-1/2 w-full bg-gray-50 p-8 lg:p-16 flex flex-col justify-center">
+      <div className="lg:w-1/2 w-full bg-gray-50 px-20 flex flex-col">
         <div className="">
           <Title text={'EXPERIENCE ROYAL GRANDEUR'}></Title>
-          {/* Dynamic Subtitle - Project Name */}
           <h2 className="text-xl lg:text-2xl font-semibold mb-4 text-gray-800 transition-all duration-500">
             {currentProject.name}
           </h2>
@@ -129,15 +128,15 @@ export default function Royal() {
           autoplay
           onSwiper={setSwiperInstance}
           onSlideChange={handleSlideChange}
-          className="w-full h-full py-12"
+          className="w-full h-full "
         >
           {projects.map((project, index) => (
             <SwiperSlide key={index}>
               {({ isActive }) => (
                 <div
-                  className={`relative overflow-hidden rounded-lg transition-all duration-500 ${
+                  className={`relative overflow-hidden transition-all duration-500 ${
                     isActive
-                      ? "scale-90 md:scale-100 opacity-100 pt-4"
+                      ? "scale-90 md:scale-100 opacity-100 duration-500"
                       : "scale-75 opacity-60"
                   }`}
                   style={{ height: "600px" }}
