@@ -83,7 +83,7 @@ export default function HeroSlider() {
                     fontFamily: "'Spectral', Arial, Helvetica, sans-serif",
                     lineHeight: "1",
                   }}
-                  className={`md:text-[90px] text-[80px] text-center tracking-tight transition-all duration-1000 ${
+                  className={`md:text-[90px] text-[40px] text-center tracking-tight transition-all duration-1000 ${
                     showText && currentSlideIndex === index
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-8"
@@ -96,7 +96,7 @@ export default function HeroSlider() {
                   style={{
                     fontFamily: "'Spectral', Arial, Helvetica, sans-serif",
                   }}
-                  className={`md:text-[45px] text-[40px] tracking-tight transition-all duration-1000 delay-300 ${
+                  className={`md:text-[45px] text-[30px] text-center tracking-tight transition-all duration-1000 delay-300 ${
                     showText && currentSlideIndex === index
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-8"

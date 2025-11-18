@@ -72,7 +72,7 @@
 //               key={index}
 //               to={item.to}
 //               onClick={item.action}
-//               className="relative md:p-[25px] p-6 cursor-pointer overflow-hidden md:text-xl text-sm border-l flex justify-center 
+//               className="relative md:p-[25px] md:px-8 p-6 cursor-pointer overflow-hidden md:text-xl text-sm border-l flex justify-center 
 //                          before:absolute before:left-[-100%] before:top-0 
 //                          before:h-full before:w-full before:bg-gray-50 
 //                          before:transition-all before:duration-500 hover:before:left-0
@@ -289,9 +289,6 @@
 
 
 
-
-
-
 import { useState } from "react";
 import { FiUser, FiHeart, FiSearch, FiMenu, FiX } from "react-icons/fi";
 import { AnimatePresence, motion } from "framer-motion";
@@ -315,11 +312,12 @@ export default function Navbar() {
   const locations = ["Dhanmondi", "Gulshan", "Banani", "Uttara", "Mirpur", "Baridhara"];
 
   const navIcons = [
-    { icon: <FiUser />, label: "Login", to: "/login" },
-    { icon: <FiHeart />, label: "Favourites", to: "/favourites" },
+    { icon: <FiUser />, label: "Login", to: "/login", showOnMobile: true },
+    { icon: <FiHeart />, label: "Favourites", to: "/favourites", showOnMobile: false },
     {
       icon: <FiSearch />,
       label: "Search",
+      showOnMobile: false,
       action: () => {
         setOpenMenu(false);
         setOpenSearch(true);
@@ -351,7 +349,6 @@ export default function Navbar() {
     <>
       {/* NAVBAR */}
       <nav className="w-full fixed top-0 left-0 z-50 flex justify-between items-center bg-black/20 border-b border-white">
-
         {/* Logo */}
         <div className="w-[140px] md:w-[200px]">
           <Link to="/" className="flex items-center">
@@ -359,46 +356,35 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* ICON SECTION */}
+        {/* Icons */}
         <div className="flex items-center text-xl text-gray-300">
-
-          {/* Only user icon (visible in small devices) */}
-          <div className="md:hidden p-6 border-l cursor-pointer hover:text-gray-500">
-            <Link to="/login">
-              <FiUser />
+          {navIcons.map((item, index) => (
+            <Link
+              key={index}
+              to={item.to}
+              onClick={item.action}
+              className={`relative md:p-[25px] md:px-6 p-6 cursor-pointer overflow-hidden md:text-xl text-sm border-l flex justify-center 
+                         before:absolute before:left-[-100%] before:top-0 
+                         before:h-full before:w-full before:bg-gray-50 
+                         before:transition-all before:duration-500 hover:before:left-0
+                         hover:text-gray-500 transition-all
+                         ${item.showOnMobile ? 'block' : 'hidden md:flex'}`}
+              title={item.label}>
+              <span className="relative z-10">{item.icon}</span>
             </Link>
-          </div>
+          ))}
 
-          {/* Icons visible only on medium+ screens */}
-          <div className="hidden md:flex items-center text-xl text-gray-300">
-            {navIcons.map((item, index) => (
-              <Link
-                key={index}
-                to={item.to}
-                onClick={item.action}
-                className="relative md:p-[25px] p-6 cursor-pointer overflow-hidden border-l
-                  before:absolute before:left-[-100%] before:top-0 
-                  before:h-full before:w-full before:bg-gray-50 
-                  before:transition-all before:duration-500 hover:before:left-0
-                  hover:text-gray-500 transition-all"
-                title={item.label}
-              >
-                <span className="relative z-10">{item.icon}</span>
-              </Link>
-            ))}
-          </div>
-
-          {/* MENU BUTTON – visible on all devices */}
+          {/* Menu Button */}
           <div
             onClick={() => {
               setOpenSearch(false);
               setOpenMenu(true);
             }}
-            className="relative p-6 md:p-[25px] cursor-pointer overflow-hidden border-l
-              before:absolute before:left-[-100%] before:top-0 
-              before:h-full before:w-full before:bg-gray-50
-              before:transition-all before:duration-500 hover:before:left-0
-              hover:text-gray-500 transition-all"
+            className="relative w-full md:p-[25px] p-6 cursor-pointer overflow-hidden md:text-xl text-sm border-l
+                      before:absolute before:left-[-100%] before:top-0 
+                      before:h-full before:w-full before:bg-gray-50
+                      before:transition-all before:duration-500 hover:before:left-0
+                      transition-all hover:text-gray-500"
           >
             <span className="relative z-10">
               <FiMenu />
@@ -407,10 +393,11 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* === SEARCH PANEL === */}
+      {/* SEARCH PANEL */}
       <AnimatePresence>
         {openSearch && (
           <>
+            {/* Overlay */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -419,6 +406,7 @@ export default function Navbar() {
               className="fixed inset-0 bg-black/50 z-[55]"
             />
 
+            {/* Panel */}
             <motion.div
               {...panelAnimation}
               className="fixed top-0 right-0 h-screen w-full md:w-[90vw] lg:w-[80vw] bg-white shadow-xl z-[60] overflow-y-auto"
@@ -432,8 +420,8 @@ export default function Navbar() {
 
               <div className="h-full flex flex-col md:flex-row">
                 {/* FILTERS */}
-                <div className="w-full md:w-1/3 lg:w-1/4 bg-gray-50 p-6 md:p-8 border-b md:border-r">
-                  <h2 className="text-2xl font-semibold mb-6">Search Projects</h2>
+                <div className="w-full md:w-1/3 lg:w-1/4 bg-gray-50 p-6 md:p-8 border-b md:border-b-0 md:border-r overflow-y-auto">
+                  <h2 className="text-2xl font-semibold mb-6 md:mb-8">Search Projects</h2>
 
                   {/* Search Input */}
                   <input
@@ -441,18 +429,18 @@ export default function Navbar() {
                     placeholder="Search projects..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg mb-6"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg mb-4 md:mb-6"
                   />
 
-                  {/* Dropdown Filters */}
-                  {[ 
+                  {/* Filters */}
+                  {[
                     { label: "Division", state: selectedDivision, set: setSelectedDivision, items: divisions },
                     { label: "Type", state: selectedType, set: setSelectedType, items: types },
                     { label: "Status", state: selectedStatus, set: setSelectedStatus, items: statuses },
                     { label: "Location", state: selectedLocation, set: setSelectedLocation, items: locations },
                   ].map((f, i) => (
-                    <div className="mb-6" key={i}>
-                      <label className="block text-sm font-medium mb-2">{f.label}</label>
+                    <div className="mb-4 md:mb-6" key={i}>
+                      <label className="block text-sm font-medium mb-1 md:mb-2">{f.label}</label>
                       <select
                         value={f.state}
                         onChange={(e) => f.set(e.target.value)}
@@ -460,7 +448,7 @@ export default function Navbar() {
                       >
                         <option value="">All {f.label}s</option>
                         {f.items.map((item) => (
-                          <option key={item} value={item}>{item}</option>
+                          <option key={item}>{item}</option>
                         ))}
                       </select>
                     </div>
@@ -474,19 +462,18 @@ export default function Navbar() {
                       setSelectedStatus("");
                       setSelectedLocation("");
                     }}
-                    className="w-full bg-gray-800 text-white py-3 rounded-lg"
+                    className="w-full bg-gray-800 text-white py-3 rounded-lg mt-2 md:mt-4"
                   >
                     Clear Filters
                   </button>
                 </div>
 
-                {/* PROJECT LIST */}
-                <div className="flex-1 p-6">
+                {/* PROJECTS */}
+                <div className="flex-1 p-6 md:p-8 overflow-y-auto">
                   <h2 className="text-2xl font-semibold mb-4">
                     ({projects.length}) Projects found
                   </h2>
                   <hr className="mb-4" />
-
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {projects.map((project) => (
                       <Link
@@ -530,7 +517,7 @@ export default function Navbar() {
         )}
       </AnimatePresence>
 
-      {/* === MENU PANEL === */}
+      {/* MENU PANEL */}
       <AnimatePresence>
         {openMenu && (
           <>
@@ -544,22 +531,34 @@ export default function Navbar() {
 
             <motion.div
               {...panelAnimation}
-              className="fixed top-0 right-0 h-screen w-[300px] bg-blue-900/90 shadow-xl z-[60] p-8"
+              className="fixed top-0 right-0 h-screen w-[300px] bg-blue-900/90 shadow-xl z-[60] p-8 overflow-y-auto"
             >
               <button
                 onClick={() => setOpenMenu(false)}
-                className="absolute top-6 right-6 text-3xl text-white hover:scale-105"
+                className="absolute top-6 right-6 text-3xl text-white hover:scale-105 cursor-pointer"
               >
                 <FiX />
               </button>
 
-              <ul className="flex flex-col gap-4 text-gray-300 mt-16 text-lg">
-                <Link to="/" onClick={() => setOpenMenu(false)} className="hover:text-white">Home</Link>
-                <Link to="/projects" onClick={() => setOpenMenu(false)} className="hover:text-white">Projects</Link>
-                <Link to="/about" onClick={() => setOpenMenu(false)} className="hover:text-white">About</Link>
-                <Link to="/contact" onClick={() => setOpenMenu(false)} className="hover:text-white">Contact</Link>
-                <Link to="/enquiry" onClick={() => setOpenMenu(false)} className="hover:text-white">Customer Enquiry</Link>
-                <Link to="/media" onClick={() => setOpenMenu(false)} className="hover:text-white">Media Center</Link>
+              <ul className="flex flex-col gap-4 text-gray-300 mt-16 text-lg md:text-xl">
+                <Link to="/" onClick={() => setOpenMenu(false)} className="hover:text-white transition duration-200">
+                  Home
+                </Link>
+                <Link to="/projects" onClick={() => setOpenMenu(false)} className="hover:text-white transition duration-200">
+                  Projects
+                </Link>
+                <Link to="/about" onClick={() => setOpenMenu(false)} className="hover:text-white transition duration-200">
+                  About
+                </Link>
+                <Link to="/contact" onClick={() => setOpenMenu(false)} className="hover:text-white transition duration-200">
+                  Contact
+                </Link>
+                <Link to="/enquiry" onClick={() => setOpenMenu(false)} className="hover:text-white transition duration-200">
+                  Customer Enquiry
+                </Link>
+                <Link to="/media" onClick={() => setOpenMenu(false)} className="hover:text-white transition duration-200">
+                  Media Center
+                </Link>
               </ul>
             </motion.div>
           </>
