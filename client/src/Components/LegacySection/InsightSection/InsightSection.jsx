@@ -7,7 +7,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import {  FaArrowRight } from "react-icons/fa";
 import Title from "../../Titile/Title";
 import insights from "./insightData";
 import ArrowButton from "../../ArrowButton/ArrowButton";
@@ -70,7 +69,7 @@ const InsightSection = () => {
               spaceBetween: 20,
             },
             1024: {
-              slidesPerView: 3,
+              slidesPerView: 4,
               spaceBetween: 30,
             },
           }}
@@ -85,15 +84,12 @@ const InsightSection = () => {
                   src={insight.image}
                   alt={insight.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-all duration-1300 "
-                />
-
-                {/* Dark Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                />         
 
                 {/* Content */}
                 <div className="absolute inset-0 flex flex-col justify-between p-6">
                   {/* Title */}
-                  <h3 className="text-white text-2xl font-semibold leading-tight transition-transform duration-300">
+                  <h3 className="text-white text-xl font-semibold leading-tight transition-transform duration-300">
                     {insight.title}
                   </h3>
 

@@ -205,8 +205,8 @@ export default function Royal() {
   return (
     <div className="w-full min-h-screen bg-gray-50 flex flex-col lg:flex-row mb-3">
       {/* Left Side - Content */}
-      <div className="lg:w-1/2  bg-gray-50 flex flex-col  md:mt-8">
-        <div className="md:px-20 ">
+      <div className="lg:w-1/2  bg-gray-50 flex flex-col md:mt-8">
+        <div className="md:px-8 lg:px-16 px-2 ">
           <Title text={"EXPERIENCE ROYAL GRANDEUR"}></Title>
           <h2 className="text-xl lg:text-2xl font-semibold  text-gray-800 transition-all duration-500">
             {currentProject.name}
@@ -261,7 +261,7 @@ export default function Royal() {
               slidesPerView: 1,
             },
             1024: {
-              slidesPerView: 2,
+              slidesPerView: 2.1,
             },
           }}
         >
