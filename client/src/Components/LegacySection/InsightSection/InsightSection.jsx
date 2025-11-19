@@ -78,12 +78,12 @@ const InsightSection = () => {
             <SwiperSlide key={insight.id}>
               <div
                 onClick={() => handleInsightClick(insight.slug)}
-                className="relative group cursor-pointer overflow-hidden shadow-lg h-[500px] transition-transform duration-300  md:h-[500px]"
+                className="relative group cursor-pointer overflow-hidden  shadow-lg h-[500px] transition-transform duration-300  md:h-[500px]"
               >
                 <img
                   src={insight.image}
                   alt={insight.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-all duration-1300 "
+                  className="w-full h-full object-cover group-hover:scale-110 transition-all duration-1300"
                 />         
 
                 {/* Content */}

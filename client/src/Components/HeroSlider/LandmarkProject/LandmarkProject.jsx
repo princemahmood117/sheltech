@@ -1,4 +1,4 @@
-import React from "react";
+
 import Title from "../../Titile/Title";
 import sapphire from "../../../assets/1707370922OrD5R.png";
 import { MoveRight } from "lucide-react";
@@ -6,14 +6,14 @@ import LandmarkSliders from "../LandmarkSliders";
 
 const LandmarkProjects = ({ youtubeId }) => {
   return (
-    <section className="min-h-screen bg-[rgb(33,33,88)]  items-center justify-center px-4">
+    <section className="min-h-screen bg-[rgb(33,33,88)] items-center justify-center px-4">
       <div className="pt-6 md:pt-10">
         <Title
           className="text-left md:text-center text-2xl md:text-3xl  text-white"
           text={"EXPLORE OUR LANDMARK PROJECTS"}
         ></Title>
       </div>
-      <div className="w-full mx-auto max-w-7xl aspect-video overflow-hidden shadow-xl">
+      <div className="w-full mx-auto max-w-7xl aspect-video overflow-hidden">
         <iframe
           className="w-full h-full"
           src={`https://www.youtube.com/embed/${youtubeId}?&mute=1&loop=1&playlist=${youtubeId}`}
@@ -25,7 +25,7 @@ const LandmarkProjects = ({ youtubeId }) => {
       </div>
 
       {/* extra part */}
-      <div className="flex flex-col mt-12 md:mt-32">
+      <div className="flex flex-col mt-10 md:mt-32">
         <div className="mx-auto">
           <img className="text-left md:mx-auto" src={sapphire} alt="sapphire" />
           <p
@@ -68,3 +68,6 @@ const LandmarkProjects = ({ youtubeId }) => {
 };
 
 export default LandmarkProjects;
+
+
+

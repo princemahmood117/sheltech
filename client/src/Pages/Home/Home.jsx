@@ -18,7 +18,7 @@ const Home = () => {
          <div className="relative">
             <Navbar></Navbar>
             <HeroSlider></HeroSlider>
-            <div className='mt-24'>
+            <div className='mt-14'>
               <Royal></Royal>
             </div>
             <LandmarkProjects youtubeId={'kqq0JTjrXlM'}></LandmarkProjects>
