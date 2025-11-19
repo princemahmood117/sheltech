@@ -16,10 +16,10 @@ const LandmarkProjects = ({ youtubeId }) => {
       <div className="w-full mx-auto max-w-7xl aspect-video overflow-hidden shadow-xl">
         <iframe
           className="w-full h-full"
-          src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=1&loop=1&playlist=${youtubeId}`}
+          src={`https://www.youtube.com/embed/${youtubeId}?&mute=1&loop=1&playlist=${youtubeId}`}
           title="Landmark Projects Video"
           frameBorder="0"
-          allow="autoplay; encrypted-media; picture-in-picture"
+          allow="encrypted-media; picture-in-picture"
           allowFullScreen
         ></iframe>
       </div>

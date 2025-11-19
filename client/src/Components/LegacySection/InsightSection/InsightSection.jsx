@@ -38,33 +38,23 @@ const InsightSection = () => {
   };
 
   return (
-    <div className="w-full py-0 md:py-16 px-4">
+    <div>
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
-        <div className="flex justify-between items-center mb-12">
-          <Title className="uppercase" text="Insights" />
+        <div className="md:flex justify-between items-center md:mb-6 ">
+          <div>
+            <Title className="uppercase text-3xl" text="Insights" />
+          </div>
 
-          <div className="flex items-center gap-4">
+          {/* buttons */}
+          <div className="flex items-center gap-8 pb-6">
             <ArrowButton direction="left" onClick={handlePrev}></ArrowButton>
             <ArrowButton direction="right" onClick={handleNext}></ArrowButton>
 
-            <button
-              onClick={handleViewAll}
-              className="relative inline-flex items-center px-4 h-10 justify-center overflow-hidden font-medium transition duration-300 border border-gray-800 rounded-full shadow-md group bg-white cursor-pointer ml-4">
-              <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-[rgb(33,33,88)] group-hover:translate-x-0">
-                <span className="flex items-center gap-2">
-                  View All <FaArrowRight className="w-4 h-4" />
-                </span>
-              </span>
-              <span className="absolute flex items-center justify-center w-full h-full text-gray-800 transition-all duration-300 transform group-hover:translate-x-full ease">
-                <span className="flex items-center gap-2">
-                  View All <FaArrowRight className="w-4 h-4" />
-                </span>
-              </span>
-              <span className="relative invisible flex items-center gap-2">
-                View All <FaArrowRight className="w-4 h-4" />
-              </span>
-            </button>
+            <div className="flex justify-center items-center gap-3">
+               View All
+               <ArrowButton direction="right" onClick={handleViewAll}></ArrowButton>
+            </div>
           </div>
         </div>
 
@@ -89,12 +79,12 @@ const InsightSection = () => {
             <SwiperSlide key={insight.id}>
               <div
                 onClick={() => handleInsightClick(insight.slug)}
-                className="relative group cursor-pointer overflow-hidden rounded-lg shadow-lg h-[500px] transition-transform duration-300 hover:scale-105 md:h-[650px]"
+                className="relative group cursor-pointer overflow-hidden shadow-lg h-[500px] transition-transform duration-300  md:h-[500px]"
               >
                 <img
                   src={insight.image}
                   alt={insight.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-all duration-1300 "
                 />
 
                 {/* Dark Overlay */}
@@ -103,7 +93,7 @@ const InsightSection = () => {
                 {/* Content */}
                 <div className="absolute inset-0 flex flex-col justify-between p-6">
                   {/* Title */}
-                  <h3 className="text-white text-2xl font-semibold leading-tight group-hover:translate-y-[-4px] transition-transform duration-300">
+                  <h3 className="text-white text-2xl font-semibold leading-tight transition-transform duration-300">
                     {insight.title}
                   </h3>
 
