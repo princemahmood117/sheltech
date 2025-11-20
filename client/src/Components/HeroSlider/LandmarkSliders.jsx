@@ -47,12 +47,12 @@ const LandmarkSliders = () => {
 
         {projects.map((project) => (
           <SwiperSlide key={project.id}>
-            <div className="relative group overflow-hidden cursor-pointer h-[400px]">
+            <div className="relative group overflow-hidden cursor-pointer h-[450px] mb-2">
               {/* Project Image */}
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-1300 group-hover:scale-110"
               />
 
               
@@ -65,7 +65,7 @@ const LandmarkSliders = () => {
               )}
 
               {/* Bottom Info */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white bg-gradient-to-t from-black/70 to-transparent group-hover:bg-blue-900/80 transition-all duration-500">
+              <div className="absolute bottom-4 bg-black/50 left-0 right-0 p-2 text-white bg-linear-to-t from-black/70 to-transparent group-hover:bg-blue-900/80 transition-all duration-500">
                 <h3 className="text-xl font-semibold mb-2">
                   {project?.title}
                 </h3>

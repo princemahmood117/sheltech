@@ -19,7 +19,7 @@ const MediaImage = () => {
           {mediaData.map((insight) => (
             <div
               key={insight.id}
-              className="relative group cursor-pointer overflow-hidden rounded-lg shadow-lg h-[500px] md:h-[650px] transition-transform duration-300 hover:scale-105"
+              className="relative group cursor-pointer overflow-hidden rounded-lg shadow-lg h-[500px] md:h-[450px] transition-transform duration-300 hover:scale-105"
             >
               <img
                 src={insight.image}

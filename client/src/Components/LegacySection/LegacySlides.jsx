@@ -5,6 +5,7 @@ import slides from "./legacyData";
 import Title from "../Titile/Title";
 import Testimonial from "./Testimonial";
 import InsightSection from "./InsightSection/InsightSection";
+import ArrowButton from "../ArrowButton/ArrowButton";
 
 
 
@@ -54,40 +55,8 @@ const LegacySlides = () => {
 
           {/* BUTTONS */}
           <div className="flex items-center gap-4">
-            <button
-              onClick={prevSlide}
-              className="relative inline-flex items-center w-10 h-10 justify-center overflow-hidden font-medium transition duration-300  border border-gray-800 rounded-full shadow-md group bg-white cursor-pointer">
-
-              <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-[rgb(33,33,88)] group-hover:translate-x-0">
-                <FaArrowLeft className="w-4 h-6" />
-              </span>
-
-              <span className="absolute flex items-center justify-center w-full h-full text-gray-800 transition-all duration-300 transform group-hover:translate-x-full ease">
-                <FaArrowLeft className="w-4 h-6" />
-              </span>
-
-              <span className="relative invisible">
-                <FaArrowLeft className="w-4 h-6" />
-              </span>
-            </button>
-
-            {/* NEXT */}
-            <button
-              onClick={nextSlide}
-              className="relative inline-flex items-center w-10 h-10 justify-center overflow-hidden font-medium transition duration-300 ease-out border border-gray-800 rounded-full shadow-md group bg-white cursor-pointer">
-
-              <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-[rgb(33,33,88)] group-hover:translate-x-0 ease">
-                <FaArrowRight className="w-4 h-6" />
-              </span>
-
-              <span className="absolute flex items-center justify-center w-full h-full text-gray-800 transition-all duration-300 transform group-hover:translate-x-full ease">
-                <FaArrowRight className="w-4 h-6" />
-              </span>
-
-              <span className="relative invisible">
-                <FaArrowRight className="w-4 h-6" />
-              </span>
-            </button>
+            <ArrowButton onClick={prevSlide} direction="left"></ArrowButton>
+            <ArrowButton onClick={nextSlide} direction="right"></ArrowButton>
           </div>
 
           <hr className="border-gray-400 mt-2" />
@@ -98,8 +67,7 @@ const LegacySlides = () => {
             className={`
               transition-all duration-500 ease-out
               ${animate ? "opacity-100 translate-x-0" : "opacity-0 translate-x-3"}
-            `}
-          >
+            `}>
             <h2 className="text-2xl font-medium text-[#11153A] mb-3">
               {slides[index].title}
             </h2>

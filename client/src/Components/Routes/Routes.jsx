@@ -14,6 +14,13 @@ import Career from "../../Pages/Career/Career";
 import Enquiry from "../../Pages/Enquiry/Enquiry";
 import Policy from "../../Pages/Policy/Policy";
 import Projects from "../../Pages/Projects/Projects";
+import Residential from "../../Pages/SubmenuPages/Residential";
+import Commercial from "../../Pages/SubmenuPages/Commercial";
+import SapphireSeries from "../../Pages/SubmenuPages/SapphireSeries";
+import Land from "../../Pages/SubmenuPages/Land";
+import CorporateInfo from "../../Pages/SubmenuPages/CorporateInfo";
+import OurLeaders from "../../Pages/SubmenuPages/OurLeaders";
+import Awards from "../../Pages/SubmenuPages/Awards";
 
 const router = createBrowserRouter([
   {
@@ -43,10 +50,12 @@ const router = createBrowserRouter([
         path : "/insights/:slug",
         element: <InsightDetails></InsightDetails>
       },
-            {
+
+      {
         path : "/about",
         element: <AboutUs></AboutUs>
       },
+
       {
         path : "/contact",
         element: <ContactUs></ContactUs>
@@ -80,6 +89,43 @@ const router = createBrowserRouter([
         path : "/projects",
         element: <Projects></Projects>
       },
+      
+      {
+        path : "/projects/residential",
+        element: <Residential></Residential>
+      },
+
+      {
+        path : "/projects/commercial",
+        element: <Commercial></Commercial>
+      },
+
+      {
+        path : "/projects/sapphire-series",
+        element: <SapphireSeries></SapphireSeries>
+      },
+
+      {
+        path : "/projects/land",
+        element: <Land></Land>
+      },
+
+      
+      {
+        path : "/about/corporate-info",
+        element: <CorporateInfo></CorporateInfo>
+      },
+            
+      {
+        path : "/about/our-leaders",
+        element: <OurLeaders></OurLeaders>
+      },
+      
+      {
+        path : "/about/awards",
+        element: <Awards></Awards>
+      },
+
 
 
 

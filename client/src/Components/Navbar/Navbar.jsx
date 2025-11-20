@@ -1,23 +1,25 @@
 
 
 import { useState } from "react";
-import { FiUser, FiHeart, FiSearch, FiMenu, FiX } from "react-icons/fi";
+import { FiUser, FiHeart, FiSearch, FiMenu, FiX, FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logoBg.png";
-import projects from "./projects";
-import { divisions, locations, statuses, types } from "./navSearchData";
+
+// import { divisions, locations, statuses, types } from "";
+import projects from "../HeroSlider/royalProjects";
 
 export default function Navbar() {
   const [openSearch, setOpenSearch] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
+  const [openAboutSubmenu, setOpenAboutSubmenu] = useState(false);
+  const [openProjectsSubmenu, setOpenProjectsSubmenu] = useState(false);
 
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedDivision, setSelectedDivision] = useState("");
   const [selectedType, setSelectedType] = useState("");
   const [selectedStatus, setSelectedStatus] = useState("");
   const [selectedLocation, setSelectedLocation] = useState("");
-
 
   const navIcons = [
     { icon: <FiUser />, label: "Login", to: "/login", showOnMobile: true },
@@ -31,6 +33,19 @@ export default function Navbar() {
         setOpenSearch(true);
       },
     },
+  ];
+
+  const aboutSubmenus = [
+    { label: "Corporate Info", to: "/about/corporate-info" },
+    { label: "Our Leaders", to: "/about/our-leaders" },
+    { label: "Award & Accolades", to: "/about/awards" },
+  ];
+
+  const projectsSubmenus = [
+    { label: "Residential", to: "/projects/residential" },
+    { label: "Commercial", to: "/projects/commercial" },
+    { label: "Sapphire Series", to: "/projects/sapphire-series" },
+    { label: "Land", to: "/projects/land" },
   ];
 
   const getStatusColor = (status) => {
@@ -239,28 +254,107 @@ export default function Navbar() {
               </button>
 
               <ul className="flex flex-col gap-4 text-gray-300 mt-16 text-lg md:text-xl">
-                <Link to="/" onClick={() => setOpenMenu(false)} className="hover:text-white transition duration-200 uppercase">
+                <Link 
+                  to="/" 
+                  onClick={() => setOpenMenu(false)} 
+                  className="hover:text-white transition duration-200 uppercase">
                   Home
                 </Link>
-                <Link to="/about" onClick={() => setOpenMenu(false)} className="hover:text-white transition duration-200 uppercase">
-                  About us
-                </Link>
-                <Link to="/projects" onClick={() => setOpenMenu(false)} className="hover:text-white transition duration-200 uppercase">
-                  Projects
-                </Link>
-                <Link to="/land-owner" onClick={() => setOpenMenu(false)} className="hover:text-white transition duration-200 uppercase">
+
+                {/* About Us with Submenu */}
+                <div>
+                  <div
+                    onClick={() => setOpenAboutSubmenu(!openAboutSubmenu)}
+                    className="hover:text-white transition duration-200 uppercase cursor-pointer flex items-center justify-between">
+                    <span>About us</span>
+                    {openAboutSubmenu ? <FiChevronUp /> : <FiChevronDown />}
+                  </div>
+                  
+                  <AnimatePresence>
+                    {openAboutSubmenu && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="overflow-hidden">
+                        <ul className="flex flex-col gap-2 mt-2 ml-4 text-[14px] uppercase">
+                          {aboutSubmenus.map((submenu, index) => (
+                            <Link
+                              key={index}
+                              to={submenu.to}
+                              onClick={() => setOpenMenu(false)}
+                              className="hover:text-white transition duration-200 py-1">
+                              {submenu.label}
+                            </Link>
+                          ))}
+                        </ul>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                {/* Projects with Submenu */}
+                <div>
+                  <div
+                    onClick={() => setOpenProjectsSubmenu(!openProjectsSubmenu)}
+                    className="hover:text-white transition duration-200 uppercase cursor-pointer flex items-center justify-between">
+                    <span>Projects</span>
+                    {openProjectsSubmenu ? <FiChevronUp /> : <FiChevronDown />}
+                  </div>
+                  
+                  <AnimatePresence>
+                    {openProjectsSubmenu && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="overflow-hidden">
+                        <ul className="flex flex-col gap-2 mt-2 ml-4 text-[14px] uppercase">
+                          {projectsSubmenus.map((submenu, index) => (
+                            <Link
+                              key={index}
+                              to={submenu.to}
+                              onClick={() => setOpenMenu(false)}
+                              className="hover:text-white transition duration-200 py-1">
+                              {submenu.label}
+                            </Link>
+                          ))}
+                        </ul>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                <Link 
+                  to="/land-owner" 
+                  onClick={() => setOpenMenu(false)} 
+                  className="hover:text-white transition duration-200 uppercase">
                   Land owner
                 </Link>
-                <Link to="/media" onClick={() => setOpenMenu(false)} className="hover:text-white transition duration-200 uppercase">
+                <Link 
+                  to="/media" 
+                  onClick={() => setOpenMenu(false)} 
+                  className="hover:text-white transition duration-200 uppercase">
                   Media Center
                 </Link>
-                <Link to="/career" onClick={() => setOpenMenu(false)} className="hover:text-white transition duration-200 uppercase">
+                <Link 
+                  to="/career" 
+                  onClick={() => setOpenMenu(false)} 
+                  className="hover:text-white transition duration-200 uppercase">
                   Career
                 </Link>
-                <Link to="/enquiry" onClick={() => setOpenMenu(false)} className="hover:text-white transition duration-200 uppercase">
+                <Link 
+                  to="/enquiry" 
+                  onClick={() => setOpenMenu(false)} 
+                  className="hover:text-white transition duration-200 uppercase">
                   Customer Enquiry
                 </Link>
-                <Link to="/contact" onClick={() => setOpenMenu(false)} className="hover:text-white transition duration-200 uppercase">
+                <Link 
+                  to="/contact" 
+                  onClick={() => setOpenMenu(false)} 
+                  className="hover:text-white transition duration-200 uppercase">
                   Contact
                 </Link>
               </ul>

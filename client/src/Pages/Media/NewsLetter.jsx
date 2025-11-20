@@ -8,8 +8,7 @@ const NewsLetter = () => {
       <div className="flex flex-col justify-center mx-auto px-10 md:px-24  max-w-5xl">
         <h1
           style={{ fontFamily: "'Spectral', Arial, Helvetica, sans-serif" }}
-          className="md:text-5xl text-3xl mb-6 text-white uppercase text-center"
-        >
+          className="md:text-5xl text-3xl mb-6 text-white uppercase text-center">
           subscribe to our newsletter
         </h1>
 

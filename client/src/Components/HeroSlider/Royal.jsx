@@ -46,6 +46,8 @@ export default function Royal() {
         </div>
       </div>
 
+
+
       {/* Right Side - Swiper */}
       <div className="md:w-1/2 w-full relative overflow-visible flex items-center py-0"
      style={{ height: "520px" }}>

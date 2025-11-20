@@ -3,6 +3,7 @@ import Title from "../../Components/Titile/Title";
 import AssociateCompanies from "./AssociateCompanies/AssociateCompanies";
 import PositiveChanges from "./PositiveChanges/PositiveChanges";
 import LoadingScreen from "../../Components/LoadingScreen/LoadingScreen";
+import { Helmet } from "react-helmet-async";
 
 const AboutUs = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -12,16 +13,16 @@ const AboutUs = () => {
   };
   return (
     <>
-      <Title>
-        <title>Sheltec | Contact US</title>
-      </Title>
+      <Helmet>
+        <title>Sheltec | About us</title>
+      </Helmet>
 
       {isLoading && (
         <LoadingScreen handleLoadingComplete={handleLoadingComplete} />
       )}
 
      {!isLoading && <div className="mb-9  min-h-[calc(100vh-68px)]">
-        <div className="relative w-full h-screen">
+        <div className="w-screen h-screen relative overflow-hidden m-0 p-0">
           {/* Background Image */}
           <img
             src="https://www.sheltech-bd.com/cms/admin/uploads/page/about-us/1707390568PpFJs.jpg"
