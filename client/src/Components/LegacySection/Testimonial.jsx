@@ -267,7 +267,7 @@ const Testimonial = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
                 {/* Left Side - Video */}
                 <div className="relative group w-full">
-                  <div className="relative overflow-hidden rounded-lg aspect-video bg-black w-full">
+                  <div className="relative overflow-hidden aspect-video bg-black w-full">
                     {playingVideo === testimonial.id ? (
                       // YouTube iframe when playing
                       <iframe
@@ -294,8 +294,7 @@ const Testimonial = () => {
                         {testimonial.youtubeId && (
                           <div
                             className="absolute inset-0 flex items-center justify-center cursor-pointer"
-                            onClick={() => handlePlayVideo(testimonial.id)}
-                          >
+                            onClick={() => handlePlayVideo(testimonial.id)}>
                             <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                               <FaPlay 
                                 className="w-8 h-8 text-gray-800 ml-1"
