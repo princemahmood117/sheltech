@@ -42,7 +42,7 @@ const Residential = () => {
   return (
     <div>
       <Helmet>
-        <title>Sheltec | Residential</title>
+        <title>Sheltec Projects | Residential</title>
       </Helmet>
 
       {isLoading && (
@@ -55,7 +55,7 @@ const Residential = () => {
             {/* Background Image */}
             <img
               src="https://www.sheltech-bd.com/cms/admin/uploads/page/projects/1706162099ULACL.jpg"
-              alt="About Sheltech"
+              alt="Residential projects"
               className="w-full h-full object-cover"
             />
 
