@@ -31,7 +31,7 @@ const LoadingScreen = ({ handleLoadingComplete }) =>  {
     >
       <div className="text-center">
         <div className="mb-8 animate-pulse">
-          <h1 className="text-6xl md:text-9xl font-light text-white tracking-[0.3em] mb-2">
+          <h1 className="text-6xl md:text-9xl font-light text-white tracking-[0.3em] mb-2 ml-4">
             SHELTECH
           </h1>
           <p className="text-xl md:text-2xl text-white/70 tracking-[0.2em]">
