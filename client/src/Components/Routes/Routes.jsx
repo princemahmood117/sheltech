@@ -18,7 +18,6 @@ import Residential from "../../Pages/SubmenuPages/Residential";
 import Commercial from "../../Pages/SubmenuPages/Commercial";
 import SapphireSeries from "../../Pages/SubmenuPages/SapphireSeries";
 import Land from "../../Pages/SubmenuPages/Land";
-import CorporateInfo from "../../Pages/SubmenuPages/CorporateInfo";
 import OurLeaders from "../../Pages/SubmenuPages/OurLeaders";
 import Awards from "../../Pages/SubmenuPages/Awards";
 
@@ -113,7 +112,7 @@ const router = createBrowserRouter([
       
       {
         path : "/about/corporate-info",
-        element: <CorporateInfo></CorporateInfo>
+        element: <AboutUs></AboutUs>
       },
             
       {

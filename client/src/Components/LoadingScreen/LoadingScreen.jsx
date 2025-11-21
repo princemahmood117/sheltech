@@ -9,13 +9,13 @@ const LoadingScreen = ({ handleLoadingComplete }) =>  {
   useEffect(() => {
     const fadeOutTimer = setTimeout(() => {     // Start fade out after 2 seconds
       setFadeOut(true);
-    }, 1000);
+    }, 2000);
 
 
     // Complete loading after fade out animation
     const completeTimer = setTimeout(() => {
       handleLoadingComplete();
-    }, 1000);
+    }, 2000);
 
     return () => {
       clearTimeout(fadeOutTimer);

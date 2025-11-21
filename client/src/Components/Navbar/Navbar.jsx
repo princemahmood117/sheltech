@@ -6,8 +6,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logoBg.png";
 
-// import { divisions, locations, statuses, types } from "";
+import { divisions, locations, statuses, types } from "./filterData";
+
 import projects from "../HeroSlider/royalProjects";
+
 
 export default function Navbar() {
   const [openSearch, setOpenSearch] = useState(false);

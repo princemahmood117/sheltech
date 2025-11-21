@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 import LandImage from "./LandImage";
 
 
-const Media = () => {
+const Land = () => {
    const [isLoading, setIsLoading] = useState(true);
   
     const handleLoadingComplete = () => {
@@ -20,7 +20,7 @@ const Media = () => {
         <LoadingScreen handleLoadingComplete={handleLoadingComplete} />
       )}
 
-    { !isLoading && <div className="relative w-full h-screen">
+    { !isLoading && <div className="relative w-full  md:h-screen h-[450px]">
         {/* Background Image */}
         <img
           src="https://www.sheltech-bd.com/cms/admin/uploads/page/land-projects/17061620233PeKH.jpg"
@@ -47,4 +47,4 @@ const Media = () => {
   );
 };
 
-export default Media;
+export default Land;

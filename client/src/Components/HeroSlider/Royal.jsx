@@ -39,7 +39,7 @@ export default function Royal() {
             {currentProject.type} • {currentProject.series} • {currentProject.location}
           </p>
 
-          <div className="flex gap-6">
+          <div className="flex gap-6 my-3">
             <ArrowButton direction="left" onClick={handlePrev} />
             <ArrowButton direction="right" onClick={handleNext} />
           </div>
@@ -49,7 +49,10 @@ export default function Royal() {
 
 
       {/* Right Side - Swiper */}
-      <div className="md:w-1/2 w-full relative overflow-visible flex items-center py-0"
+      <div   className="
+    md:w-1/2 w-full relative overflow-visible flex items-center py-0 
+    px-4 sm:px-6 md:px-0
+  "
      style={{ height: "520px" }}>
         <Swiper
           modules={[Navigation, EffectCoverflow, Autoplay]}
@@ -111,3 +114,7 @@ export default function Royal() {
     </div>
   );
 }
+
+
+
+

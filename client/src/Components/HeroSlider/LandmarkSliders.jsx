@@ -11,7 +11,7 @@ import "swiper/css/navigation";
 
 const LandmarkSliders = () => {
   return (
-    <div className="w-full relative px-4 md:px-16 ">
+    <div className="w-full relative px-1 md:px-16 ">
       <button className="landmark-prev-btn absolute md:left-28 left-7 top-1/2 z-10 w-6 h-6 md:w-8 md:h-8 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
         <IoIosArrowRoundBack className="w-6 h-6 md:w-8 md:h-8 text-gray-800"/>
       </button>
