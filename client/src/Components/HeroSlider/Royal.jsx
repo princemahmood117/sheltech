@@ -91,7 +91,7 @@ export default function Royal() {
                     isActive
                       ? "opacity-100 z-20"
                       : isNext
-                      ? "scale-90 opacity-100 z-10"
+                      ? "scale-90 opacity-100 z-10 -mt-4"
                       : "scale-90 opacity-80 z-0"
                   }`}
                   style={{
